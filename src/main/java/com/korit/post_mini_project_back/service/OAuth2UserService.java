@@ -33,7 +33,7 @@ public class OAuth2UserService extends DefaultOAuth2UserService {
         User user = null;
 
         if ("NAVER".equalsIgnoreCase(clientName)) {
-            Map<String, Object> response = (Map<String, Object>) oAuth2User.getAttributes().get("response");//네이버만 이럼
+            Map<String, Object> response = (Map<String, Object>) oAuth2User.getAttributes().get("response"); //네이버만 이럼
             attributes.putAll(response);
             nameAttributeKey = "id";
             user = User.builder() //db에 담을 준비

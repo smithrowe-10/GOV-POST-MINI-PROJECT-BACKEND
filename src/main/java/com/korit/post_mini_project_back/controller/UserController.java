@@ -14,9 +14,7 @@ public class UserController {
 
     @GetMapping("/me")
     public ResponseEntity<User> getMe(@AuthenticationPrincipal PrincipalUser principalUser) {
+        // principalUser 내부에 보관중인 User 엔티티를 꺼내서 200 OK로 전달
         return ResponseEntity.ok(principalUser.getUser());
     }
-
-
-
 }

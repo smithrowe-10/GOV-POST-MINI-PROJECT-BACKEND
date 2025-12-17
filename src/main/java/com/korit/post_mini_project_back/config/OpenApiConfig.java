@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Configuration;
 public class OpenApiConfig {
 
     @Bean
-    public OpenAPI   openAPIConfig() {
-        OpenAPI openAPI =  new OpenAPI();
+    public OpenAPI openAPIConfig() {
+        OpenAPI openAPI = new OpenAPI();
 
         Info info = new Info();
         info.title("스프링 부트 수업");
@@ -37,5 +37,7 @@ public class OpenApiConfig {
                 .addSecurityItem(securityRequirement)
                 .components(components);
     }
+
+    // 그냥 스웨거에서 쓰는거같은데
 
 }
