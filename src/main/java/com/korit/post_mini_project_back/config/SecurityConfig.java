@@ -53,6 +53,9 @@ public class SecurityConfig {
         http.oauth2Login(oauth2 ->
                 oauth2.userInfoEndpoint(userInfo -> userInfo.userService(oAuth2UserService))
                         .successHandler(oAuth2SuccessHandler)
+                        .failureHandler((req, resp, exception) -> {
+
+                        })
         );
 
         // 5. 필터 순서: 일반 로그인 필터 앞에 우리가 만든 'JWT 검사 필터'를 끼워 넣음, 여기서 토큰이 확인되면 PrincipalUser 생성
@@ -64,6 +67,9 @@ public class SecurityConfig {
             auth.requestMatchers("/swagger-ui/**").permitAll();
             auth.requestMatchers("/swagger-ui.html").permitAll();
             auth.requestMatchers("/doc").permitAll();
+            auth.requestMatchers("/oauth2/**").permitAll();
+            auth.requestMatchers("/login/**").permitAll();
+            auth.requestMatchers("/image/**").permitAll();
             auth.anyRequest().authenticated();
         });
 
