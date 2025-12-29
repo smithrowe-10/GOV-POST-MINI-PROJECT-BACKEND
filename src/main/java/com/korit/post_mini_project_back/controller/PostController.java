@@ -16,7 +16,7 @@ public class PostController {
 
     private final PostService postService;
 
-    // FORM_DATA는 이거씀 JSON은 RequestBody 쓰듯이
+                                        // FORM_DATA는 이거씀 JSON은 RequestBody 쓰듯이
     @PostMapping(value = "", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> createPost(@ModelAttribute CreatePostReqDto dto) {
         System.out.println(dto);
